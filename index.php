@@ -14,7 +14,7 @@ include'db.php';
 
 
 
-public function removeFile($filename) 
+ function removeFile($filename) 
   {
   $path = "uploads/";
     $files = glob($path . $filename);
@@ -27,7 +27,7 @@ public function removeFile($filename)
   $file_name=$_GET['file'];
    $id=$_GET['id'];
   
-  $conn->query("DELETE FROM tbl_name file_name='' WHERE id='$id';
+  $conn->query("DELETE FROM tbl_name file_name='' WHERE id='$id'");
   removeFile($file_name);
   header("Location:index.php");
 
