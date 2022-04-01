@@ -1,13 +1,26 @@
 <?php 
 include'db.php';
 
- public function removeDirectory($path) 
+//  public function removeDirectory($path) 
+//   {
+//     $files = glob($path . '/*');
+//     foreach ($files as $file) {
+//       is_dir($file) ? removeDirectory($file) : unlink($file);
+//     }
+//     rmdir($path);
+//     return;
+//   }
+
+
+
+
+public function removeFile($filename) 
   {
-    $files = glob($path . '/*');
+  $path = "uploads/";
+    $files = glob($path . $filename);
     foreach ($files as $file) {
-      is_dir($file) ? removeDirectory($file) : unlink($file);
+      unlink($file);
     }
-    rmdir($path);
     return;
   }
   
@@ -15,7 +28,7 @@ include'db.php';
    $id=$_GET['id'];
   
   $conn->query("DELETE FROM tbl_name file_name='' WHERE id='$id';
-  removeDirectory($file_name);
+  removeFile($file_name);
   header("Location:index.php");
 
 
